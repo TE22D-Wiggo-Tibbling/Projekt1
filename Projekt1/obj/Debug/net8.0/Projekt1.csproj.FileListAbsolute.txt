@@ -1,0 +1,14 @@
+c:\Users\wiggo.tibbling\Documents\Prog\Projekt1\Projekt1\bin\Debug\net8.0\Projekt1.exe
+c:\Users\wiggo.tibbling\Documents\Prog\Projekt1\Projekt1\bin\Debug\net8.0\Projekt1.deps.json
+c:\Users\wiggo.tibbling\Documents\Prog\Projekt1\Projekt1\bin\Debug\net8.0\Projekt1.runtimeconfig.json
+c:\Users\wiggo.tibbling\Documents\Prog\Projekt1\Projekt1\bin\Debug\net8.0\Projekt1.dll
+c:\Users\wiggo.tibbling\Documents\Prog\Projekt1\Projekt1\bin\Debug\net8.0\Projekt1.pdb
+c:\Users\wiggo.tibbling\Documents\Prog\Projekt1\Projekt1\obj\Debug\net8.0\Projekt1.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\wiggo.tibbling\Documents\Prog\Projekt1\Projekt1\obj\Debug\net8.0\Projekt1.AssemblyInfoInputs.cache
+c:\Users\wiggo.tibbling\Documents\Prog\Projekt1\Projekt1\obj\Debug\net8.0\Projekt1.AssemblyInfo.cs
+c:\Users\wiggo.tibbling\Documents\Prog\Projekt1\Projekt1\obj\Debug\net8.0\Projekt1.csproj.CoreCompileInputs.cache
+c:\Users\wiggo.tibbling\Documents\Prog\Projekt1\Projekt1\obj\Debug\net8.0\Projekt1.dll
+c:\Users\wiggo.tibbling\Documents\Prog\Projekt1\Projekt1\obj\Debug\net8.0\refint\Projekt1.dll
+c:\Users\wiggo.tibbling\Documents\Prog\Projekt1\Projekt1\obj\Debug\net8.0\Projekt1.pdb
+c:\Users\wiggo.tibbling\Documents\Prog\Projekt1\Projekt1\obj\Debug\net8.0\Projekt1.genruntimeconfig.cache
+c:\Users\wiggo.tibbling\Documents\Prog\Projekt1\Projekt1\obj\Debug\net8.0\ref\Projekt1.dll
