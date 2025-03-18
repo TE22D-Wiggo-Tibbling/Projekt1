@@ -12,3 +12,4 @@ c:\Users\wiggo.tibbling\Documents\Prog\Projekt1\Projekt1\obj\Debug\net8.0\refint
 c:\Users\wiggo.tibbling\Documents\Prog\Projekt1\Projekt1\obj\Debug\net8.0\Projekt1.pdb
 c:\Users\wiggo.tibbling\Documents\Prog\Projekt1\Projekt1\obj\Debug\net8.0\Projekt1.genruntimeconfig.cache
 c:\Users\wiggo.tibbling\Documents\Prog\Projekt1\Projekt1\obj\Debug\net8.0\ref\Projekt1.dll
+c:\Users\wiggo.tibbling\Documents\Prog\Projekt1\Projekt1\obj\Debug\net8.0\Projekt1.sourcelink.json

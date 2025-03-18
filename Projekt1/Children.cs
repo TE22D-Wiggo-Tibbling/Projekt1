@@ -17,8 +17,8 @@ public class Monster : Creature
 
         Name = "Monster";
 
-        MaxDamage = 20;
-        MinDamage = 10;
+        MaxDamage = 10;
+        MinDamage = 5;
     }
 
     void Update()
