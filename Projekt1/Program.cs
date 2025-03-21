@@ -19,7 +19,7 @@
 
 bool battle = true;
 List<Monster> monsters = new();
-for (int i = 0; i < Random.Shared.Next(2,4); i++)
+for (int i = 0; i < Random.Shared.Next(1,4); i++)
 {
     monsters.Add(new());
 }
@@ -33,10 +33,11 @@ while (true)  //spelet
         {
             
         Monster.UpdateAll();
+        player.Attack();
+        monsters[m].Attack();
         player.Health -= monsters[m].Damage;
         monsters[m].Health -= player.Damage;
 
-        monsters[m].Attack();
 
         }
         Console.WriteLine($"{monsters[0].Name}>{monsters[0].Health}  |  {player.Health}<{player.Name}");
@@ -46,7 +47,6 @@ while (true)  //spelet
         }
 
 
-        player.Attack();
         Console.ReadLine();
     }
 }
