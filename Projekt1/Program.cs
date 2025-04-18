@@ -1,4 +1,8 @@
 ﻿Player player = new();
+
+player.Action();
+Console.ReadLine();
+
 // Monster monster = new();
 
 // while (player.Health > 0 && monster.Health > 0)
@@ -46,7 +50,10 @@ while (true)  //spelet
         }
 
 
-
+for (int i = 0; i < BattleQueue.Count; i++)
+{
+    BattleQueue[i].
+}
 
         for (int m = 0; m < monsters.Count; m++)
         {

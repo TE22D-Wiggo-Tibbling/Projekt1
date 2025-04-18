@@ -31,5 +31,25 @@ public class Creature
         return Damage;
     }
 
+    public int Heal()
+    {
+        Healing = Random.shared.Next(MinHealing, MaxHealing);
+        return Healing
+    }
+
+    public void Action(){
+    if(Health=>Health/2)
+    {
+    if(random.Shared.next(1,2)=1)
+    {
+        Health++
+    }
+    else
+    {
+        random.shared.next(1,3)
+    }
+    }
+    }
+
 
 }
