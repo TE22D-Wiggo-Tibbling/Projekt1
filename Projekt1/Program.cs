@@ -3,23 +3,6 @@
 player.Action();
 Console.ReadLine();
 
-// Monster monster = new();
-
-// while (player.Health > 0 && monster.Health > 0)
-// {
-//     Monster.UpdateAll();
-//     Console.WriteLine($"{player.Name}>{player.Health}  |  {monster.Health}<{monster.Name}");
-//     player.Health -= monster.Damage;
-//     monster.Health -= player.Damage;
-
-//     monster.Attack();
-//     player.Attack();
-
-//     Console.ReadLine();
-
-
-// }
-
 
 bool battle = true;
 List<Monster> monsters = new();
@@ -76,3 +59,5 @@ for (int i = 0; i < BattleQueue.Count; i++)
         Console.ReadLine();
     }
 }
+
+

@@ -3,8 +3,11 @@ public class Creature
 {
     public string Name;
 
-    public int Health = 100;
+    public int MaxHealth;
+    public int Health = MaxHealth;
 
+    public int MinHealing;
+    public int MaxHealing;
         
     public int MaxDamage;
     public int MinDamage;
@@ -13,28 +16,32 @@ public class Creature
     public Dictionary<string, int> myStats = new Dictionary<string, int>();
 
 
-    // Stats:
-    // Strength
-    // Speed
-    // Health
-    // Ap
+ 
     public Creature(){
+        // Stats
         myStats.Add("Strength", 12);
-        myStats.Add("Speed", 12);
         myStats.Add("Health", 12);
         myStats.Add("Ap", 12);
+        myStats.Add("Speed", 12);
+
+        MinDamage = 3 + myStats["Strength"];    
+        MaxDamage = 7 + myStats["Strength"];
+
+        MaxHealth = 50 + myStats["Health"] * 2;
+
+        MinHealing = 2 + myStats["Ap"];
+        MaxHealing = 5 + myStats["Ap"];
     }
 
     public int Attack()
     {
-        Damage = Random.Shared.Next(MinDamage, MaxDamage);
-        return Damage;
+        return Random.Shared.Next(MinDamage, MaxDamage);
+
     }
 
     public int Heal()
     {
-        Healing = Random.shared.Next(MinHealing, MaxHealing);
-        return Healing
+        return Random.shared.Next(MinHealing, MaxHealing);
     }
 
     public void Action(){
@@ -42,11 +49,11 @@ public class Creature
     {
     if(random.Shared.next(1,2)=1)
     {
-        Health++
+        Heal();
     }
     else
     {
-        random.shared.next(1,3)
+        Attack();
     }
     }
     }

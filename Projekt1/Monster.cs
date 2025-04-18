@@ -28,6 +28,20 @@ public class Monster : Creature
         CheckDeath();
 
     }
+
+        public void Action(){
+    if(Health=>Health/2)
+    {
+    if(random.Shared.next(1,2)=1)
+    {
+        Heal();
+    }
+    else
+    {
+        Attack();
+    }
+    }
+    }
 }
 
 
