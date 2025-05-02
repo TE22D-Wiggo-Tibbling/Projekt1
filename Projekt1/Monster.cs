@@ -36,10 +36,13 @@ public class Monster : Creature
             if (Random.Shared.Next(1, 2) == 1)
             {
                 Heal();
+                Console.WriteLine($"{Name} heald itself for {Heal}hp");
+
             }
             else
             {
                 Attack();
+                Console.WriteLine($"{Name} Attacked you for {Attack}damage");
             }
             ActionPoint--;
         }
@@ -53,6 +56,7 @@ public class Orc : Monster
 {
     public Orc()
     {
+        Name = "Orc";
         myStats.Add("Strength", 13);
         myStats.Add("Health", 14);
         myStats.Add("Ap", 11);
@@ -62,8 +66,10 @@ public class Orc : Monster
 
 public class Goblin : Monster
 {
-    public Goblin(){
-                myStats.Add("Strength", 10);
+    public Goblin()
+    {
+        Name = "Goblin";
+        myStats.Add("Strength", 10);
         myStats.Add("Health", 10);
         myStats.Add("Ap", 14);
         myStats.Add("Speed", 14);

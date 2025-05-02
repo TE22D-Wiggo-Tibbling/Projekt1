@@ -1,22 +1,21 @@
 ﻿Player player = new();
 
-player.Action();
-Console.ReadLine();
-
 
 bool battle = true;
 List<Monster> monsters = new();
 
-        for (int i = 0; i < Random.Shared.Next(1, 4); i++) {
-            int choice = Random.Shared.Next(2); 
+for (int i = 0; i < Random.Shared.Next(1, 4); i++)
+{
+    int choice = Random.Shared.Next(2);
 
-            Monster newMonster = choice switch {
-                0 => new Goblin(),
-                1 => new Orc()
-            };
+    Monster newMonster = choice switch
+    {
+        0 => new Goblin(),
+        1 => new Orc()
+    };
 
-            monsters.Add(newMonster);
-        }
+    monsters.Add(newMonster);
+}
 
 while (true)  //spelet
 {
@@ -26,10 +25,10 @@ while (true)  //spelet
 
         // Årdningen av Action
         PriorityQueue<Creature, int> queue = new PriorityQueue<Creature, int>();
-        queue.Enqueue(player, 20-player.myStats["Speed"]);
+        queue.Enqueue(player, 20 - player.myStats["Speed"]);
         for (int i = 0; i < monsters.Count; i++)
         {
-            queue.Enqueue(monsters[i], 20-monsters[i].myStats["Speed"]);
+            queue.Enqueue(monsters[i], 20 - monsters[i].myStats["Speed"]);
         }
 
         List<Creature> BattleQueue = new();
@@ -40,10 +39,10 @@ while (true)  //spelet
         }
 
 
-for (int i = 0; i < BattleQueue.Count; i++)
-{
-    BattleQueue[i].Action();
-}
+        for (int i = 0; i < BattleQueue.Count; i++)
+        {
+            BattleQueue[i].Action();
+        }
 
         for (int m = 0; m < monsters.Count; m++)
         {
