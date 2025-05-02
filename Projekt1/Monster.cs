@@ -29,26 +29,43 @@ public class Monster : Creature
 
     }
 
-        public void Action(){
-    if(Health=>Health/2)
+    public void Action()
     {
-    if(random.Shared.next(1,2)=1)
-    {
-        Heal();
-    }
-    else
-    {
-        Attack();
-    }
-    }
+        if (Health >= Health / 2)
+        {
+            if (Random.Shared.Next(1, 2) == 1)
+            {
+                Heal();
+            }
+            else
+            {
+                Attack();
+            }
+            ActionPoint--;
+        }
     }
 }
 
 
-public class Orc : Monster{
 
+
+public class Orc : Monster
+{
+    public Orc()
+    {
+        myStats.Add("Strength", 13);
+        myStats.Add("Health", 14);
+        myStats.Add("Ap", 11);
+        myStats.Add("Speed", 10);
+    }
 }
 
-public class Goblin : Monster{
-    
+public class Goblin : Monster
+{
+    public Goblin(){
+                myStats.Add("Strength", 10);
+        myStats.Add("Health", 10);
+        myStats.Add("Ap", 14);
+        myStats.Add("Speed", 14);
+    }
 }

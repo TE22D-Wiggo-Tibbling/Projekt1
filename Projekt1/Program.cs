@@ -6,10 +6,17 @@ Console.ReadLine();
 
 bool battle = true;
 List<Monster> monsters = new();
-for (int i = 0; i < Random.Shared.Next(1, 4); i++)
-{
-    monsters.Add(new());
-}
+
+        for (int i = 0; i < Random.Shared.Next(1, 4); i++) {
+            int choice = Random.Shared.Next(2); 
+
+            Monster newMonster = choice switch {
+                0 => new Goblin(),
+                1 => new Orc()
+            };
+
+            monsters.Add(newMonster);
+        }
 
 while (true)  //spelet
 {
@@ -35,7 +42,7 @@ while (true)  //spelet
 
 for (int i = 0; i < BattleQueue.Count; i++)
 {
-    BattleQueue[i].
+    BattleQueue[i].Action();
 }
 
         for (int m = 0; m < monsters.Count; m++)
