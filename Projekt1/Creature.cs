@@ -17,6 +17,8 @@ public class Creature
 
     public Dictionary<string, int> myStats = new Dictionary<string, int>();
 
+    public int choice;
+
 
 
     public Creature()
@@ -46,6 +48,23 @@ public class Creature
 
     public virtual void Action()
     {
+        Console.WriteLine($"What do you want to do");
+        Console.WriteLine($"1. Attack");
+        Console.WriteLine($"2. Heal");
+
+        while(choice >2 || choice<1){
+        while(!int.TryParse(Console.ReadLine(),out choice)){
+            Console.WriteLine("1. or 2.");
+        }
+        }
+
+        if (choice==1)
+        {
+            Attack();
+        }
+        else{
+            Heal();
+        }
     }
 
 

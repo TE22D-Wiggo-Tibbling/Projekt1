@@ -44,17 +44,17 @@ while (true)  //spelet
             BattleQueue[i].Action();
         }
 
-        for (int m = 0; m < monsters.Count; m++)
-        {
+        // for (int m = 0; m < monsters.Count; m++)
+        // {
 
-            Monster.UpdateAll();
-            player.Attack();
-            monsters[m].Attack();
-            player.Health -= monsters[m].Damage;
-            monsters[m].Health -= player.Damage;
+        //     Monster.UpdateAll();
+        //     player.Attack();
+        //     monsters[m].Attack();
+        //     player.Health -= monsters[m].Damage;
+        //     monsters[m].Health -= player.Damage;
 
 
-        }
+        // }
         Console.WriteLine($"{monsters[0].Name}>{monsters[0].Health}  |  {player.Health}<{player.Name}");
         for (int i = 0; i < monsters.Count - 1; i++)
         {

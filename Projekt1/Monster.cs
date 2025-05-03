@@ -45,6 +45,8 @@ public class Monster : Creature
                 Console.WriteLine($"{Name} Attacked you for {Attack}damage");
             }
             ActionPoint--;
+            Console.ReadLine();
+            
         }
     }
 }
