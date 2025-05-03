@@ -2,19 +2,15 @@
 public class Monster : Creature
 {
     public static List<Monster> monsters = new();
+
     public Monster()
     {
         monsters.Add(this);
-
-        Name = "Monster";
-
-        MaxDamage = 10;
-        MinDamage = 5;
+        Name = "Monster"; 
     }
 
     public virtual void Update()
     {
-
     }
 
     public static void CheckDeath()
@@ -26,27 +22,38 @@ public class Monster : Creature
     {
         monsters.ForEach(m => m.Update());
         CheckDeath();
-
     }
 
-    public void Action()
+    public override void Action()
     {
-        if (Health >= Health / 2)
+        if (Health >= MaxHealth / 2)
         {
-            if (Random.Shared.Next(1, 2) == 1)
+            if (Random.Shared.Next(0, 2) == 0)
             {
-                Heal();
-                Console.WriteLine($"{Name} heald itself for {Heal}hp");
+                int healed = Heal();
+                Health += healed;
+                if (Health > MaxHealth) Health = MaxHealth;
 
+                Console.WriteLine($"{Name} healed itself for {healed} HP");
             }
             else
             {
-                Attack();
-                Console.WriteLine($"{Name} Attacked you for {Attack}damage");
+                int dmg = Attack();
+                Console.WriteLine($"{Name} attacked for {dmg} damage!");
             }
+
             ActionPoint--;
             Console.ReadLine();
-            
+        }
+        else
+        {
+            int healed = Heal();
+            Health += healed;
+            if (Health > MaxHealth) Health = MaxHealth;
+
+            Console.WriteLine($"{Name} is weak and healed for {healed} HP");
+            ActionPoint--;
+            Console.ReadLine();
         }
     }
 }
@@ -59,10 +66,12 @@ public class Orc : Monster
     public Orc()
     {
         Name = "Orc";
-        myStats.Add("Strength", 13);
-        myStats.Add("Health", 14);
-        myStats.Add("Ap", 11);
-        myStats.Add("Speed", 10);
+        myStats["Strength"] = 13;
+        myStats["Health"] = 14;
+        myStats["Ap"] = 11;
+        myStats["Speed"] = 10;
+
+        CalculateStats();
     }
 }
 
@@ -71,9 +80,11 @@ public class Goblin : Monster
     public Goblin()
     {
         Name = "Goblin";
-        myStats.Add("Strength", 10);
-        myStats.Add("Health", 10);
-        myStats.Add("Ap", 14);
-        myStats.Add("Speed", 14);
+        myStats["Strength"] = 10;
+        myStats["Health"] = 10;
+        myStats["Ap"] = 14;
+        myStats["Speed"] = 14;
+
+        CalculateStats();
     }
 }

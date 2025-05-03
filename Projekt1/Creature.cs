@@ -1,4 +1,3 @@
-
 public class Creature
 {
     public string Name;
@@ -19,18 +18,18 @@ public class Creature
 
     public int choice;
 
-
-
     public Creature()
     {
-        // Stats
+    }
 
-
+    public void CalculateStats()
+    {
         MinDamage = 3 + myStats["Strength"];
         MaxDamage = 7 + myStats["Strength"];
 
         MaxHealth = 50 + myStats["Health"] * 2;
         Health = MaxHealth;
+
         MinHealing = 2 + myStats["Ap"];
         MaxHealing = 5 + myStats["Ap"];
     }
@@ -38,7 +37,6 @@ public class Creature
     public int Attack()
     {
         return Random.Shared.Next(MinDamage, MaxDamage);
-
     }
 
     public int Heal()
@@ -52,20 +50,21 @@ public class Creature
         Console.WriteLine($"1. Attack");
         Console.WriteLine($"2. Heal");
 
-        while(choice >2 || choice<1){
-        while(!int.TryParse(Console.ReadLine(),out choice)){
-            Console.WriteLine("1. or 2.");
-        }
+        while (choice < 1 || choice > 2)
+        {
+            while (!int.TryParse(Console.ReadLine(), out choice))
+            {
+                Console.WriteLine("1. or 2.");
+            }
         }
 
-        if (choice==1)
+        if (choice == 1)
         {
             Attack();
         }
-        else{
+        else
+        {
             Heal();
         }
     }
-
-
 }
