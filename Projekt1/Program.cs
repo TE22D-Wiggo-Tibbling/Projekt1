@@ -1,4 +1,6 @@
-﻿Player player = new();
+﻿using System.Security.Cryptography.X509Certificates;
+
+Player player = new();
 
 
 bool battle = true;
@@ -26,26 +28,65 @@ while (true)  //spelet
         // Årdningen av Action
         PriorityQueue<Creature, int> queue = new PriorityQueue<Creature, int>();
         queue.Enqueue(player, 20 - player.myStats["Speed"]);
-        for (int i = 0; i < monsters.Count; i++)
+        // for (int i = 0; i < monsters.Count; i++)
+        // {
+        //     queue.Enqueue(monsters[i], 20 - monsters[i].myStats["Speed"]);
+        // }
+        foreach (Monster monsteris in monsters)
         {
-            queue.Enqueue(monsters[i], 20 - monsters[i].myStats["Speed"]);
+            queue.Enqueue(monsteris, 20 - monsteris.myStats["Speed"]);
         }
 
         List<Creature> BattleQueue = new();
 
-        for (int i = 0; i < queue.Count; i++)
+
+        while (queue.Count > 0)
         {
-            BattleQueue.Add(queue.Peek());
+            BattleQueue.Add(queue.Dequeue());
+        }
+
+        // for (int i = 0; i < BattleQueue.Count; i++)
+        // {
+        //     BattleQueue[i].Action();
+        // }
+        // foreach (Monster monster in BattleQueue)
+        // {
+        //     monster.Action(player);
+        // }
+
+        foreach (Creature creature in BattleQueue)
+        {
+            if (creature is Monster)
+            {
+                creature.Action(player);
+            }
+            else
+            {
+
+                Console.WriteLine("Who you want to attack");
+
+                for (int i = 0; i < monsters.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}. {monsters[i].Name}>{monsters[i].Health}");
+                }
+
+            int choice= 0;
+                while (choice < 1 || choice > monsters.Count)
+                {
+                    while (!int.TryParse(Console.ReadLine(), out choice))
+                    {
+                        Console.WriteLine("Write one of the options");
+                    }
+                }
+
+                creature.Action(monsters[choice-1]);
+
+            }
         }
 
 
 
-        for (int i = 0; i < BattleQueue.Count; i++)
-        {
-            BattleQueue[i].Action();
-        }
 
- 
         Console.WriteLine($"{monsters[0].Name}>{monsters[0].Health}  |  {player.Health}<{player.Name}");
         for (int i = 0; i < monsters.Count - 1; i++)
         {

@@ -6,7 +6,7 @@ public class Monster : Creature
     public Monster()
     {
         monsters.Add(this);
-        Name = "Monster"; 
+        Name = "Monster";
     }
 
     public virtual void Update()
@@ -24,14 +24,14 @@ public class Monster : Creature
         CheckDeath();
     }
 
-    public override void Action()
+    public override void Action(Creature player)
     {
-        if (Health >= MaxHealth / 2)
+        if (Health <= MaxHealth / 2)
         {
             if (Random.Shared.Next(0, 2) == 0)
             {
                 int healed = Heal();
-                Health += healed;
+                Target(this, healed);
                 if (Health > MaxHealth) Health = MaxHealth;
 
                 Console.WriteLine($"{Name} healed itself for {healed} HP");
@@ -39,6 +39,7 @@ public class Monster : Creature
             else
             {
                 int dmg = Attack();
+                Target(player, dmg);
                 Console.WriteLine($"{Name} attacked for {dmg} damage!");
             }
 
@@ -47,12 +48,9 @@ public class Monster : Creature
         }
         else
         {
-            int healed = Heal();
-            Health += healed;
-            if (Health > MaxHealth) Health = MaxHealth;
-
-            Console.WriteLine($"{Name} is weak and healed for {healed} HP");
-            ActionPoint--;
+            int dmg = Attack();
+            Target(player, dmg);
+            Console.WriteLine($"{Name} attacked for {dmg} damage!");
             Console.ReadLine();
         }
     }

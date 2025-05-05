@@ -18,6 +18,7 @@ public class Creature
 
     public int choice;
 
+
     public Creature()
     {
     }
@@ -44,7 +45,12 @@ public class Creature
         return Random.Shared.Next(MinHealing, MaxHealing);
     }
 
-    public virtual void Action()
+    public void Target(Creature target, int damage)
+    {
+        target.Health=-damage;
+    }
+
+    public virtual void Action(Creature target)
     {
         Console.WriteLine($"What do you want to do");
         Console.WriteLine($"1. Attack");
@@ -60,11 +66,13 @@ public class Creature
 
         if (choice == 1)
         {
-            Attack();
+            Target(target,Attack());
         }
         else
         {
-            Heal();
+            Target(this, Heal());
         }
     }
+
+
 }

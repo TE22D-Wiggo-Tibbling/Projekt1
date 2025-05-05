@@ -2,6 +2,8 @@ public class Player : Creature
 {
     int Choice;
 
+
+
     public Player()
     {
         Name = "Player";
