@@ -78,7 +78,7 @@ public class Creature
             Target(this, healing);
             Console.WriteLine($"you healed yourself for {healing}health");
         }
-
+        choice=0;
     }
 
 

@@ -22,7 +22,7 @@ for (int i = 0; i < Random.Shared.Next(1, 4); i++)
 while (true)  //spelet
 {
 
-    while (battle)
+    while (player.Health > 0 && monsters.Count > 0)
     {
 
         // Årdningen av Action
@@ -43,6 +43,12 @@ while (true)  //spelet
             BattleQueue.Add(queue.Dequeue());
         }
 
+
+        Console.WriteLine($"{monsters[0].Name}>{monsters[0].Health}  |  {player.Health}<{player.Name}");
+        for (int i = 0; i < monsters.Count - 1; i++)
+        {
+            Console.WriteLine($"{monsters[i + 1].Name}>{monsters[i + 1].Health}");
+        }
 
 
         foreach (Creature creature in BattleQueue)
@@ -72,21 +78,33 @@ while (true)  //spelet
 
                 creature.Action(monsters[choice - 1]);
 
+
             }
+            monsters.RemoveAll(m => m.Health <= 0);
         }
 
 
 
 
-        Console.WriteLine($"{monsters[0].Name}>{monsters[0].Health}  |  {player.Health}<{player.Name}");
-        for (int i = 0; i < monsters.Count - 1; i++)
-        {
-            Console.WriteLine($"{monsters[i + 1].Name}>{monsters[i + 1].Health}");
-        }
+
 
 
         Console.ReadLine();
         Console.Clear();
+    }
+
+    if (player.Health <= 0)
+    {
+        Console.WriteLine("You died");
+        Console.ReadLine();
+        Environment.Exit(0);
+
+    }
+    if (monsters.Count == 0)
+    {
+        Console.WriteLine("You win!");
+        Console.ReadLine();
+        Environment.Exit(0);
     }
 }
 

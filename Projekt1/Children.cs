@@ -8,9 +8,9 @@ public class Player : Creature
     {
         Name = "Player";
 
-        myStats["Strength"] = 5;
-        myStats["Health"] = 10;
-        myStats["Ap"] = 3;
+        myStats["Strength"] = 10;
+        myStats["Health"] = 25;
+        myStats["Ap"] = 12;
         myStats["Speed"] = 10;
 
         CalculateStats();

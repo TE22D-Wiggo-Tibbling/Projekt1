@@ -13,16 +13,8 @@ public class Monster : Creature
     {
     }
 
-    public static void CheckDeath()
-    {
-        monsters.RemoveAll(m => m.Health <= 0);
-    }
 
-    public static void UpdateAll()
-    {
-        monsters.ForEach(m => m.Update());
-        CheckDeath();
-    }
+
 
     public override void Action(Creature player)
     {
@@ -67,7 +59,7 @@ public class Orc : Monster
         myStats["Strength"] = 13;
         myStats["Health"] = 14;
         myStats["Ap"] = 11;
-        myStats["Speed"] = 10;
+        myStats["Speed"] = 9;
 
         CalculateStats();
     }
