@@ -12,27 +12,23 @@ public class Creature
     public int MinDamage;
     public int Damage;
 
-    public int ActionPoint;
 
-    public Dictionary<string, int> myStats = new Dictionary<string, int>();
+    public Dictionary<string, int> MyStats = new Dictionary<string, int>();
 
-    public int choice;
+    public int Choice;
 
-
-    public Creature()
-    {
-    }
 
     public void CalculateStats()
     {
-        MinDamage = 3 + myStats["Strength"];
-        MaxDamage = 7 + myStats["Strength"];
+        // Calculera vad statsen gör
+        MinDamage = 3 + MyStats["Strength"];
+        MaxDamage = 7 + MyStats["Strength"];
 
-        MaxHealth = 50 + myStats["Health"] * 2;
+        MaxHealth = 50 + MyStats["Health"] * 2;
         Health = MaxHealth;
 
-        MinHealing = 2 + myStats["Ap"];
-        MaxHealing = 5 + myStats["Ap"];
+        MinHealing = 2 + MyStats["Ap"];
+        MaxHealing = 5 + MyStats["Ap"];
     }
 
     public int Attack()
@@ -42,29 +38,33 @@ public class Creature
 
     public int Heal()
     {
-        return Random.Shared.Next(MinHealing, MaxHealing);
+        // Negativ för att heala
+        return -Random.Shared.Next(MinHealing, MaxHealing);
     }
 
     public void Target(Creature target, int damage)
     {
+        // Göra damage/heala den man vill
         target.Health -= damage;
     }
 
+// Att välja vad man gör
+// Borde nog vara i spelare istället
     public virtual void Action(Creature target)
     {
         Console.WriteLine($"What do you want to do");
         Console.WriteLine($"1. Attack");
         Console.WriteLine($"2. Heal");
 
-        while (choice < 1 || choice > 2)
+        while (Choice < 1 || Choice > 2)
         {
-            while (!int.TryParse(Console.ReadLine(), out choice))
+            while (!int.TryParse(Console.ReadLine(), out Choice))
             {
                 Console.WriteLine("1. or 2.");
             }
         }
 
-        if (choice == 1)
+        if (Choice == 1)
         {
             int dmg;
             dmg = Attack();
@@ -78,7 +78,7 @@ public class Creature
             Target(this, healing);
             Console.WriteLine($"you healed yourself for {healing}health");
         }
-        choice=0;
+        Choice=0;
     }
 
 

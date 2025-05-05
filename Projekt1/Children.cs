@@ -1,6 +1,5 @@
 public class Player : Creature
 {
-    int Choice;
 
 
 
@@ -8,10 +7,10 @@ public class Player : Creature
     {
         Name = "Player";
 
-        myStats["Strength"] = 10;
-        myStats["Health"] = 25;
-        myStats["Ap"] = 12;
-        myStats["Speed"] = 10;
+        MyStats["Strength"] = 10;
+        MyStats["Health"] = 25;
+        MyStats["Ap"] = 12;
+        MyStats["Speed"] = 10;
 
         CalculateStats();
     }
