@@ -28,10 +28,8 @@ while (true)  //spelet
         // Årdningen av Action
         PriorityQueue<Creature, int> queue = new PriorityQueue<Creature, int>();
         queue.Enqueue(player, 20 - player.myStats["Speed"]);
-        // for (int i = 0; i < monsters.Count; i++)
-        // {
-        //     queue.Enqueue(monsters[i], 20 - monsters[i].myStats["Speed"]);
-        // }
+
+
         foreach (Monster monsteris in monsters)
         {
             queue.Enqueue(monsteris, 20 - monsteris.myStats["Speed"]);
@@ -45,14 +43,7 @@ while (true)  //spelet
             BattleQueue.Add(queue.Dequeue());
         }
 
-        // for (int i = 0; i < BattleQueue.Count; i++)
-        // {
-        //     BattleQueue[i].Action();
-        // }
-        // foreach (Monster monster in BattleQueue)
-        // {
-        //     monster.Action(player);
-        // }
+
 
         foreach (Creature creature in BattleQueue)
         {
@@ -70,7 +61,7 @@ while (true)  //spelet
                     Console.WriteLine($"{i + 1}. {monsters[i].Name}>{monsters[i].Health}");
                 }
 
-            int choice= 0;
+                int choice = 0;
                 while (choice < 1 || choice > monsters.Count)
                 {
                     while (!int.TryParse(Console.ReadLine(), out choice))
@@ -79,7 +70,7 @@ while (true)  //spelet
                     }
                 }
 
-                creature.Action(monsters[choice-1]);
+                creature.Action(monsters[choice - 1]);
 
             }
         }
@@ -95,6 +86,7 @@ while (true)  //spelet
 
 
         Console.ReadLine();
+        Console.Clear();
     }
 }
 

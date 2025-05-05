@@ -47,7 +47,7 @@ public class Creature
 
     public void Target(Creature target, int damage)
     {
-        target.Health=-damage;
+        target.Health -= damage;
     }
 
     public virtual void Action(Creature target)
@@ -66,12 +66,19 @@ public class Creature
 
         if (choice == 1)
         {
-            Target(target,Attack());
+            int dmg;
+            dmg = Attack();
+            Target(target, dmg);
+            Console.WriteLine($"You damage {target} for {dmg}dmg");
         }
         else
         {
-            Target(this, Heal());
+            int healing;
+            healing = Heal();
+            Target(this, healing);
+            Console.WriteLine($"you healed yourself for {healing}health");
         }
+
     }
 
 
