@@ -9,11 +9,6 @@ public class Monster : Creature
         Name = "Monster";
     }
 
-    public virtual void Update()
-    {
-    }
-
-
 
 
     public override void Action(Creature player)

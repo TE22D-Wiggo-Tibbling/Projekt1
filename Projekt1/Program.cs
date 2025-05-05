@@ -26,6 +26,7 @@ while (true)  //spelet
     {
 
         // Årdningen av Action
+       
         PriorityQueue<Creature, int> queue = new PriorityQueue<Creature, int>();
         queue.Enqueue(player, 20 - player.myStats["Speed"]);
 
