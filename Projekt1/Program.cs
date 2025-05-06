@@ -1,7 +1,6 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 
 Player player = new();
-GameFunktions game = new();
 List<Monster> monsters = new();
 
 for (int i = 0; i < Random.Shared.Next(1, 4); i++)
@@ -18,5 +17,5 @@ for (int i = 0; i < Random.Shared.Next(1, 4); i++)
 
 while (true)  //spelet
 {
-    game.Game(player, monsters);
+    GameFunktions.Game(player, monsters);
 }

@@ -1,5 +1,5 @@
 public class GameFunktions{
-public void Game(Creature player, List<Monster> monsters){
+public static void Game(Creature player, List<Monster> monsters){
 
 Console.WriteLine("You will fight against 1-3 monsters");
 Console.WriteLine("To make a choise of action pic one of the numbers that will be depicted");
