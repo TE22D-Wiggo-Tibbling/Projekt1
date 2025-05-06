@@ -1,6 +1,13 @@
 public class GameFunktions{
 public void Game(Creature player, List<Monster> monsters){
 
+Console.WriteLine("You will fight against 1-3 monsters");
+Console.WriteLine("To make a choise of action pic one of the numbers that will be depicted");
+Console.WriteLine("You will be able to attack a monster or heal yourself");
+Console.WriteLine("Dont die");
+Console.ReadLine();
+Console.Clear();
+
 while (player.Health > 0 && monsters.Count > 0)
     {
 
