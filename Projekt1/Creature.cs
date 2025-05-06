@@ -42,43 +42,16 @@ public class Creature
         return -Random.Shared.Next(MinHealing, MaxHealing);
     }
 
-    public void Target(Creature target, int damage)
+    public void DoDamage(Creature target, int damage)
     {
         // Göra damage/heala den man vill
         target.Health -= damage;
     }
 
 // Att välja vad man gör
-// Borde nog vara i spelare istället
+// Delas up på spelare och monster
     public virtual void Action(Creature target)
     {
-        Console.WriteLine($"What do you want to do");
-        Console.WriteLine($"1. Attack");
-        Console.WriteLine($"2. Heal");
-
-        while (Choice < 1 || Choice > 2)
-        {
-            while (!int.TryParse(Console.ReadLine(), out Choice))
-            {
-                Console.WriteLine("1. or 2.");
-            }
-        }
-
-        if (Choice == 1)
-        {
-            int dmg;
-            dmg = Attack();
-            Target(target, dmg);
-            Console.WriteLine($"You damage {target} for {dmg}dmg");
-        }
-        else
-        {
-            int healing;
-            healing = Heal();
-            Target(this, healing);
-            Console.WriteLine($"you healed yourself for {healing}health");
-        }
-        Choice=0;
     }
 
 

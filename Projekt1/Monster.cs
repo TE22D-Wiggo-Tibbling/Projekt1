@@ -13,15 +13,15 @@ public class Monster : Creature
             if (Random.Shared.Next(0, 2) == 0)
             {
                 int Healed = Heal();
-                Target(this, Healed);
+                DoDamage(this, Healed);
                 if (Health > MaxHealth) Health = MaxHealth;
 
-                Console.WriteLine($"{Name} healed itself for {Healed} HP");
+                Console.WriteLine($"{Name} healed itself for {Healed*-1} HP");
             }
             else
             {
                 int Dmg = Attack();
-                Target(Player, Dmg);
+                DoDamage(Player, Dmg);
                 Console.WriteLine($"{Name} attacked for {Dmg} damage!");
             }
 
@@ -30,7 +30,7 @@ public class Monster : Creature
         else
         {
             int Dmg = Attack();
-            Target(Player, Dmg);
+            DoDamage(Player, Dmg);
             Console.WriteLine($"{Name} attacked for {Dmg} damage!");
             Console.ReadLine();
         }
