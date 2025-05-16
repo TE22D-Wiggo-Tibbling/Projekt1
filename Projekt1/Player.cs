@@ -17,6 +17,7 @@ public class Player : Creature
 
     public override void Action(Creature target)
     {
+
         Console.WriteLine($"What do you want to do");
         Console.WriteLine($"1. Attack  ({MinDamage}-{MaxDamage} Damage)");
         Console.WriteLine($"2. Heal  ({MinHealing}-{MaxHealing} Hp)");

@@ -1,24 +1,26 @@
 public class Creature
 {
-    public string Name;
+    public string Name { get; protected set; }
 
-    public int MaxHealth;
-    public int Health;
+    protected int MaxHealth; 
+    public int Health { get; protected set; }
 
-    public int MinHealing;
-    public int MaxHealing;
+    protected int MinHealing; 
+    protected int MaxHealing; 
 
-    public int MaxDamage;
-    public int MinDamage;
-    public int Damage;
+    protected int MaxDamage;
+    protected int MinDamage; 
+    protected int Damage;
 
-
-    public Dictionary<string, int> MyStats = new Dictionary<string, int>();
-
-    public int Choice;
+    protected Wepon wepon=new();
 
 
-    public void CalculateStats()
+    public Dictionary<string, int> MyStats{ get; protected set; } = new Dictionary<string, int>();
+
+    protected int Choice;
+
+
+    public void CalculateStats() 
     {
         // Calculera vad statsen gör
         MinDamage = 3 + MyStats["Strength"];
@@ -31,12 +33,12 @@ public class Creature
         MaxHealing = 5 + MyStats["Ap"];
     }
 
-    public int Attack()
+    protected int Attack()
     {
-        return Random.Shared.Next(MinDamage, MaxDamage);
+        return Random.Shared.Next(MinDamage, MaxDamage) + wepon.AdditionalDamage;
     }
 
-    public int Heal()
+    protected int Heal()
     {
         // Negativ för att heala
         return -Random.Shared.Next(MinHealing, MaxHealing);
@@ -48,8 +50,8 @@ public class Creature
         target.Health -= damage;
     }
 
-// Att välja vad man gör
-// Delas up på spelare och monster
+    // Att välja vad man gör
+    // Delas up på spelare och monster
     public virtual void Action(Creature target)
     {
     }
