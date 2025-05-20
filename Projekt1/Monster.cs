@@ -67,3 +67,17 @@ public class Goblin : Monster
         CalculateStats();
     }
 }
+
+public class Djivan : Monster
+{
+    public Djivan()
+    {
+        Name = "Djivan";
+        MyStats["Strength"] = 20;
+        MyStats["Health"] = 20;
+        MyStats["Ap"] = 20;
+        MyStats["Speed"] = 20;
+
+        CalculateStats();
+    }
+}
