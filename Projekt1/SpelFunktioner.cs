@@ -3,7 +3,7 @@ using System.Threading.Channels;
 public class GameFunktions
 {
 
-    public static void SetClass(Player player1)
+    public void SetClass(Player player1)
     {
         int Choise = 0;
         Console.WriteLine("Chose Class:");
@@ -41,7 +41,7 @@ public class GameFunktions
     }
 
 
-    public static void Game(Creature player, List<Monster> monsters)
+    public void Game(Creature player, List<Monster> monsters)
     {
 
         Console.WriteLine("You will fight against 1-3 monsters");

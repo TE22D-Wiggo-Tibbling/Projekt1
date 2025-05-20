@@ -2,6 +2,7 @@
 
 Player player = new();
 List<Monster> monsters = new();
+GameFunktions game = new();
 
 for (int i = 0; i < Random.Shared.Next(1, 4); i++)
 {
@@ -15,10 +16,10 @@ for (int i = 0; i < Random.Shared.Next(1, 4); i++)
     };
     monsters.Add(newMonster);
 }
-GameFunktions.SetClass(player);
+game.SetClass(player);
 Console.ReadLine();
 
 while (true)  //spelet
 {
-    GameFunktions.Game(player, monsters);
+    game.Game(player, monsters);
 }
