@@ -1,22 +1,33 @@
 public class Creature
 {
+
+    // Namn
     public string Name { get; protected set; }
 
+    // Max Hp
     protected int MaxHealth;
-    public int Health { get; protected set; }
 
+    // Nuvarande HP
+    public int Health { get; protected set; }
+    // Minsta man kan heala
     protected int MinHealing;
+    // Högsta man kan heala
     protected int MaxHealing;
 
+    // Högsta man kan skada
     protected int MaxDamage;
+    // Minsta man kan skada
     protected int MinDamage;
+    // Damagen man gör
     protected int Damage;
 
+    // Vapnet man använder
     protected Wepon wepon = new();
 
-
+    // Används för att sätta stats
     public Dictionary<string, int> MyStats { get; protected set; } = new Dictionary<string, int>();
 
+    // Valen som görs
     protected int Choice;
 
 
@@ -35,6 +46,7 @@ public class Creature
 
     protected int Attack()
     {
+        // Sätter spelarens damage
         return Random.Shared.Next(MinDamage, MaxDamage) + wepon.AdditionalDamage;
     }
 

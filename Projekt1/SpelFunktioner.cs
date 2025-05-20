@@ -3,15 +3,18 @@ using System.Threading.Channels;
 public class GameFunktions
 {
 
+// Att välja Class
     public void SetClass(Player player1)
     {
         int Choise = 0;
+        // De alternativen som finns
         Console.WriteLine("Chose Class:");
         Console.WriteLine("1. Fighter");
         Console.WriteLine("2. Mage");
         Console.WriteLine("3. Assasin");
         Console.WriteLine("4. Tank");
 
+        // Så man inte kan svara fel
         while (Choise < 1 || Choise > 4)
         {
 
@@ -21,6 +24,7 @@ public class GameFunktions
             }
         }
 
+        // Sätter spelarens klass beroende på dens val
         if (Choise == 1)
         {
             player1.Klass = new Fighter();
@@ -37,13 +41,16 @@ public class GameFunktions
         {
             player1.Klass = new Tank();
         }
+
+        // Sätter spelarens stats efter de valt klass
         player1.SetStats();
     }
 
 
     public void Game(Creature player, List<Monster> monsters)
     {
-
+        
+        // Instruktioner om hur spelet fungerar
         Console.WriteLine("You will fight against 1-3 monsters");
         Console.WriteLine("To make a choise of action pic one of the numbers that will be depicted");
         Console.WriteLine("You will be able to attack a monster or heal yourself");
@@ -51,6 +58,7 @@ public class GameFunktions
         Console.ReadLine();
         Console.Clear();
 
+        // Medans spelaren är vid liv och det finns monster
         while (player.Health > 0 && monsters.Count > 0)
         {
 
@@ -69,6 +77,7 @@ public class GameFunktions
                 queue.Enqueue(monsteris, 20 - monsteris.MyStats["Speed"]);
             }
 
+            // Listan över när de ska göra sina saker
             List<Creature> battleQueue = new();
 
 
@@ -90,15 +99,18 @@ public class GameFunktions
             // Gör deras Action beroende på arv
             foreach (Creature creature in battleQueue)
             {
+                // Om varelsen är ett monster
                 if (creature is Monster)
                 {
                     creature.Action(player);
                 }
+                // Om det är en spelare
                 else
                 {
 
                     Console.WriteLine("Who you want to attack");
 
+                    // Skriver up alla monster med deras HP
                     for (int i = 0; i < monsters.Count; i++)
                     {
                         Console.WriteLine($"{i + 1}. {monsters[i].Name}>{monsters[i].Health}");
@@ -121,7 +133,7 @@ public class GameFunktions
                 // När monster dör tas de bort från listan
                 monsters.RemoveAll(m => m.Health <= 0);
             }
-
+            // Reset efter rundan
             Console.ReadLine();
             Console.Clear();
         }

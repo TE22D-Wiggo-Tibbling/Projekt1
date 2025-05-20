@@ -39,9 +39,12 @@ public class Monster : Creature
 
 
 
-// Två typer av monster med olika stats
+// Tre typer av monster med olika stats
+
+
 public class Orc : Monster
 {
+    // Stark men långsam
     public Orc()
     {
         Name = "Orc";
@@ -56,6 +59,7 @@ public class Orc : Monster
 
 public class Goblin : Monster
 {
+    // Snabb men inte lika stark
     public Goblin()
     {
         Name = "Goblin";
@@ -70,6 +74,7 @@ public class Goblin : Monster
 
 public class Djivan : Monster
 {
+    // Farligaste varelsen i universum
     public Djivan()
     {
         Name = "Djivan";

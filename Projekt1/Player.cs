@@ -1,14 +1,15 @@
 public class Player : Creature
 {
-
+    // Klass här för monster inte använder det
     public Class Klass = new();
 
+    // Flyttat att sätta statsen för man ska kunna välja klass
     public Player()
     {
         Name = "Player";
-
-
     }
+
+    // Använder detta för att räkna stats efter välja klass
     public void SetStats()
     {
         MyStats["Strength"] = Klass.Strength;
@@ -19,13 +20,17 @@ public class Player : Creature
         CalculateStats();
     }
 
+    // Det spelaren gör
     public override void Action(Creature target)
     {
 
         Console.WriteLine($"What do you want to do");
+        // Skriva hur mycket damage
         Console.WriteLine($"1. Attack  ({MinDamage}-{MaxDamage} Damage)");
+        // Skriva hur mycket healing
         Console.WriteLine($"2. Heal  ({MinHealing}-{MaxHealing} Hp)");
 
+        // Så att man inte kan svara med ett ogiltigt svar
         while (Choice < 1 || Choice > 2)
         {
             while (!int.TryParse(Console.ReadLine(), out Choice))
@@ -34,6 +39,7 @@ public class Player : Creature
             }
         }
 
+        // Om man attakerar
         if (Choice == 1)
         {
             int dmg;
@@ -41,6 +47,7 @@ public class Player : Creature
             DoDamage(target, dmg);
             Console.WriteLine($"You damage {target} for {dmg}dmg");
         }
+        // Om man healar
         else
         {
             int healing;
@@ -52,6 +59,7 @@ public class Player : Creature
     }
 }
 
+// Förälder klass
 public class Class()
 {
     public int Strength;
@@ -60,6 +68,7 @@ public class Class()
     public int Speed;
 }
 
+// Fighter SubClass
 public class Fighter : Class
 {
     public Fighter()
@@ -70,6 +79,7 @@ public class Fighter : Class
         Speed = 13;
     }
 }
+// Tank SubClass
 public class Tank : Class
 {
     public Tank()
@@ -80,6 +90,7 @@ public class Tank : Class
         Speed = 8;
     }
 }
+// Mage SubClass
 public class Mage : Class
 {
     public Mage()
@@ -90,6 +101,7 @@ public class Mage : Class
         Speed = 10;
     }
 }
+// Assasin SubClass
 public class Assasin : Class
 {
     public Assasin()
