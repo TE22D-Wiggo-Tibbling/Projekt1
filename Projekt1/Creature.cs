@@ -2,25 +2,25 @@ public class Creature
 {
     public string Name { get; protected set; }
 
-    protected int MaxHealth; 
+    protected int MaxHealth;
     public int Health { get; protected set; }
 
-    protected int MinHealing; 
-    protected int MaxHealing; 
+    protected int MinHealing;
+    protected int MaxHealing;
 
     protected int MaxDamage;
-    protected int MinDamage; 
+    protected int MinDamage;
     protected int Damage;
 
-    protected Wepon wepon=new();
+    protected Wepon wepon = new();
 
 
-    public Dictionary<string, int> MyStats{ get; protected set; } = new Dictionary<string, int>();
+    public Dictionary<string, int> MyStats { get; protected set; } = new Dictionary<string, int>();
 
     protected int Choice;
 
 
-    public void CalculateStats() 
+    public void CalculateStats()
     {
         // Calculera vad statsen gör
         MinDamage = 3 + MyStats["Strength"];

@@ -15,6 +15,8 @@ for (int i = 0; i < Random.Shared.Next(1, 4); i++)
     };
     monsters.Add(newMonster);
 }
+GameFunktions.SetClass(player);
+Console.ReadLine();
 
 while (true)  //spelet
 {

@@ -3,7 +3,7 @@ using System.Threading.Channels;
 public class GameFunktions
 {
 
-    public void SetClass(Player player1)
+    public static void SetClass(Player player1)
     {
         int Choise = 0;
         Console.WriteLine("Chose Class:");
@@ -12,28 +12,32 @@ public class GameFunktions
         Console.WriteLine("3. Assasin");
         Console.WriteLine("4. Tank");
 
-        while (Choise < 0 || Choise > 4)
+        while (Choise < 1 || Choise > 4)
         {
 
-            int.TryParse(Console.ReadLine(), out Choise);
-
-            if (Choise == 1)
+            while (!int.TryParse(Console.ReadLine(), out Choise))
             {
-                player1.Klass = new Fighter();
-            }
-            if (Choise == 2)
-            {
-                player1.Klass = new Mage();
-            }
-            if (Choise == 3)
-            {
-                player1.Klass = new Assasin();
-            }
-            if (Choise == 4)
-            {
-                player1.Klass = new Tank();
+                Console.WriteLine("Chose a class");
             }
         }
+
+        if (Choise == 1)
+        {
+            player1.Klass = new Fighter();
+        }
+        if (Choise == 2)
+        {
+            player1.Klass = new Mage();
+        }
+        if (Choise == 3)
+        {
+            player1.Klass = new Assasin();
+        }
+        if (Choise == 4)
+        {
+            player1.Klass = new Tank();
+        }
+        player1.SetStats();
     }
 
 

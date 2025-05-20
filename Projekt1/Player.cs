@@ -1,12 +1,16 @@
 public class Player : Creature
 {
 
-   public Class Klass = new();
+    public Class Klass = new();
 
     public Player()
     {
         Name = "Player";
 
+
+    }
+    public void SetStats()
+    {
         MyStats["Strength"] = Klass.Strength;
         MyStats["Health"] = Klass.Health;
         MyStats["Ap"] = Klass.Ap;
