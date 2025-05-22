@@ -22,7 +22,7 @@ public class Creature
     protected int Damage;
 
     // Vapnet man använder
-    protected Wepon wepon = new();
+    protected Wepon Weapon = new();
 
     // Används för att sätta stats
     public Dictionary<string, int> MyStats { get; protected set; } = new Dictionary<string, int>();
@@ -34,8 +34,8 @@ public class Creature
     public void CalculateStats()
     {
         // Calculera vad statsen gör
-        MinDamage = 3 + MyStats["Strength"]+ wepon.AdditionalDamage;
-        MaxDamage = 7 + MyStats["Strength"]+ wepon.AdditionalDamage;
+        MinDamage = 3 + MyStats["Strength"]+ Weapon.AdditionalDamage;
+        MaxDamage = 7 + MyStats["Strength"]+ Weapon.AdditionalDamage;
 
         MaxHealth = 50 + MyStats["Health"] * 2;
         Health = MaxHealth;
@@ -58,7 +58,7 @@ public class Creature
 
     public void DoDamage(Creature target, int damage)
     {
-        // Göra damage/heala den man vill
+        // Göra damage/heala den man valde
         target.Health -= damage;
     }
 

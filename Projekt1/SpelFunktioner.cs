@@ -13,6 +13,7 @@ public class GameFunktions
         Allclasses.Add(new Assasin());
         Allclasses.Add(new Tank());
 
+        // Det spelaren väljer
         int Choise = 0;
 
         // De alternativen som finns
@@ -26,7 +27,6 @@ public class GameFunktions
         // Så man inte kan svara fel
         while (Choise < 1 || Choise > 4)
         {
-
             while (!int.TryParse(Console.ReadLine(), out Choise))
             {
                 Console.WriteLine("Chose a class");
@@ -44,13 +44,14 @@ public class GameFunktions
         // Man uppgraderar medans man har poäng
         while (Uppgradepoints > 0)
         {
+            Console.Clear();
+
             // Resetar spelarens val
             Choise = 0;
 
             // Förklara för spelaren vad de ska göra
             Console.WriteLine($"What stats do you want to uppgrade?");
             Console.WriteLine($"You have {Uppgradepoints} points left");
-
             Console.WriteLine("1. Strength");
             Console.WriteLine("2. Ap");
             Console.WriteLine("3. health");
@@ -74,7 +75,6 @@ public class GameFunktions
 
             Uppgradepoints--;
 
-
         }
         // Sätter spelarens stats efter valt class och uppgraderat
         player1.SetStats();
@@ -84,6 +84,7 @@ public class GameFunktions
 
     public void Game(Creature player, List<Monster> monsters)
     {
+        Console.Clear();
 
         // Instruktioner om hur spelet fungerar
         Console.WriteLine("You will fight against 1-3 monsters");

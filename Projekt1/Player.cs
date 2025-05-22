@@ -57,7 +57,8 @@ public class Player : Creature
 // Förälder klass
 public class Class()
 {
-    public string Classname{ get; set; }
+    // Allt som Classen ändrar
+    public string Classname { get; set; }
     public int Strength{ get; set; }
     public int Health{ get; set; }
     public int Ap{ get; set; }

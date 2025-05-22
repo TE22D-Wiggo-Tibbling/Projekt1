@@ -1,5 +1,5 @@
 using System;
-// Har detta bara komposition
+// Har detta bara för komposition
 public class Wepon
 {
     // Lägger till damage

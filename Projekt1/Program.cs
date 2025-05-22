@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-// Gör alla instanser
+﻿// Gör alla instanser
 Player player = new();
 List<Monster> monsters = new();
 GameFunktions game = new();
@@ -22,7 +20,6 @@ for (int i = 0; i < Random.Shared.Next(1, 4); i++)
 
 // Spelaren väljer Class
 game.SetClass(player);
-Console.ReadLine();
 
 //spelet
 game.Game(player, monsters);
