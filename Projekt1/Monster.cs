@@ -10,14 +10,17 @@ public class Monster : Creature
         // Kan bara heala när de är under helften hp
         if (Health <= MaxHealth / 2)
         {
+            // Randomisar om den ska slå eller heala
+            // Om den healar
             if (Random.Shared.Next(0, 2) == 0)
             {
                 int Healed = Heal();
                 DoDamage(this, Healed);
                 if (Health > MaxHealth) Health = MaxHealth;
 
-                Console.WriteLine($"{Name} healed itself for {Healed*-1} HP");
+                Console.WriteLine($"{Name} healed itself for {Healed * -1} HP");
             }
+            // Om den attakerar
             else
             {
                 int Dmg = Attack();
@@ -27,6 +30,7 @@ public class Monster : Creature
 
             Console.ReadLine();
         }
+        // Om den är över halva hp så attakerar den alltid
         else
         {
             int Dmg = Attack();

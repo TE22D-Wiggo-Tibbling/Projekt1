@@ -34,8 +34,8 @@ public class Creature
     public void CalculateStats()
     {
         // Calculera vad statsen gör
-        MinDamage = 3 + MyStats["Strength"];
-        MaxDamage = 7 + MyStats["Strength"];
+        MinDamage = 3 + MyStats["Strength"]+ wepon.AdditionalDamage;
+        MaxDamage = 7 + MyStats["Strength"]+ wepon.AdditionalDamage;
 
         MaxHealth = 50 + MyStats["Health"] * 2;
         Health = MaxHealth;
@@ -47,7 +47,7 @@ public class Creature
     protected int Attack()
     {
         // Sätter spelarens damage
-        return Random.Shared.Next(MinDamage, MaxDamage) + wepon.AdditionalDamage;
+        return Random.Shared.Next(MinDamage, MaxDamage);
     }
 
     protected int Heal()

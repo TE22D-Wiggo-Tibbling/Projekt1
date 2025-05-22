@@ -10,6 +10,7 @@ for (int i = 0; i < Random.Shared.Next(1, 4); i++)
 {
     int choice = Random.Shared.Next(3);
 
+    // Väljer mellan de tre monstrena
     Monster newMonster = choice switch
     {
         0 => new Goblin(),
@@ -23,7 +24,5 @@ for (int i = 0; i < Random.Shared.Next(1, 4); i++)
 game.SetClass(player);
 Console.ReadLine();
 
-while (true)  //spelet
-{
-    game.Game(player, monsters);
-}
+//spelet
+game.Game(player, monsters);

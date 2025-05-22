@@ -2,17 +2,26 @@ using System.Threading.Channels;
 
 public class GameFunktions
 {
-
-// Att välja Class
+    private int Uppgradepoints = 3;
+    // Att välja Class
     public void SetClass(Player player1)
     {
+        // Gör lista med alla klasser
+        List<Class> Allclasses = new();
+        Allclasses.Add(new Fighter());
+        Allclasses.Add(new Mage());
+        Allclasses.Add(new Assasin());
+        Allclasses.Add(new Tank());
+
         int Choise = 0;
+
         // De alternativen som finns
         Console.WriteLine("Chose Class:");
         Console.WriteLine("1. Fighter");
         Console.WriteLine("2. Mage");
         Console.WriteLine("3. Assasin");
         Console.WriteLine("4. Tank");
+
 
         // Så man inte kan svara fel
         while (Choise < 1 || Choise > 4)
@@ -23,33 +32,59 @@ public class GameFunktions
                 Console.WriteLine("Chose a class");
             }
         }
-
         // Sätter spelarens klass beroende på dens val
-        if (Choise == 1)
+        for (int i = 0; i < 5; i++)
         {
-            player1.Klass = new Fighter();
-        }
-        if (Choise == 2)
-        {
-            player1.Klass = new Mage();
-        }
-        if (Choise == 3)
-        {
-            player1.Klass = new Assasin();
-        }
-        if (Choise == 4)
-        {
-            player1.Klass = new Tank();
+            if (Choise == i)
+            {
+                player1.CharClass = Allclasses[i - 1];
+            }
         }
 
-        // Sätter spelarens stats efter de valt klass
+        // Man uppgraderar medans man har poäng
+        while (Uppgradepoints > 0)
+        {
+            // Resetar spelarens val
+            Choise = 0;
+
+            // Förklara för spelaren vad de ska göra
+            Console.WriteLine($"What stats do you want to uppgrade?");
+            Console.WriteLine($"You have {Uppgradepoints} points left");
+
+            Console.WriteLine("1. Strength");
+            Console.WriteLine("2. Ap");
+            Console.WriteLine("3. health");
+            Console.WriteLine("4. Speed");
+
+
+            // Så man inte kan svara fel
+            while (Choise < 1 || Choise > 4)
+            {
+                while (!int.TryParse(Console.ReadLine(), out Choise))
+                {
+                    Console.WriteLine("Chose a class");
+                }
+            }
+
+            // Lägger till poäng på det man har valt
+            if (Choise == 1) { player1.CharClass.Strength += 1; }
+            if (Choise == 2) { player1.CharClass.Ap += 1; }
+            if (Choise == 3) { player1.CharClass.Health += 1; }
+            if (Choise == 4) { player1.CharClass.Speed += 1; }
+
+            Uppgradepoints--;
+
+
+        }
+        // Sätter spelarens stats efter valt class och uppgraderat
         player1.SetStats();
+
     }
 
 
     public void Game(Creature player, List<Monster> monsters)
     {
-        
+
         // Instruktioner om hur spelet fungerar
         Console.WriteLine("You will fight against 1-3 monsters");
         Console.WriteLine("To make a choise of action pic one of the numbers that will be depicted");
@@ -86,7 +121,6 @@ public class GameFunktions
             {
                 battleQueue.Add(queue.Dequeue());
             }
-
 
             // Skriver alla varelser
             Console.WriteLine($"{monsters[0].Name}>{monsters[0].Health}  |  {player.Health}<{player.Name}");

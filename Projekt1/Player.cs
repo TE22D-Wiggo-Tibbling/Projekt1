@@ -1,21 +1,16 @@
 public class Player : Creature
 {
     // Klass här för monster inte använder det
-    public Class Klass = new();
+    public Class CharClass = new();
 
-    // Flyttat att sätta statsen för man ska kunna välja klass
-    public Player()
-    {
-        Name = "Player";
-    }
-
-    // Använder detta för att räkna stats efter välja klass
+    // Använder detta för att sätta stats efter välja klass
     public void SetStats()
     {
-        MyStats["Strength"] = Klass.Strength;
-        MyStats["Health"] = Klass.Health;
-        MyStats["Ap"] = Klass.Ap;
-        MyStats["Speed"] = Klass.Speed;
+        Name = CharClass.Classname;
+        MyStats["Strength"] = CharClass.Strength;
+        MyStats["Health"] = CharClass.Health;
+        MyStats["Ap"] = CharClass.Ap;
+        MyStats["Speed"] = CharClass.Speed;
 
         CalculateStats();
     }
@@ -62,10 +57,11 @@ public class Player : Creature
 // Förälder klass
 public class Class()
 {
-    public int Strength;
-    public int Health;
-    public int Ap;
-    public int Speed;
+    public string Classname{ get; set; }
+    public int Strength{ get; set; }
+    public int Health{ get; set; }
+    public int Ap{ get; set; }
+    public int Speed{ get;set; }
 }
 
 // Fighter SubClass
@@ -73,6 +69,7 @@ public class Fighter : Class
 {
     public Fighter()
     {
+        Classname = "Fighter";
         Strength = 13;
         Health = 13;
         Ap = 13;
@@ -84,6 +81,7 @@ public class Tank : Class
 {
     public Tank()
     {
+        Classname = "Tank";
         Strength = 10;
         Health = 25;
         Ap = 7;
@@ -95,6 +93,7 @@ public class Mage : Class
 {
     public Mage()
     {
+        Classname = "Mage";
         Strength = 12;
         Health = 8;
         Ap = 18;
@@ -106,6 +105,7 @@ public class Assasin : Class
 {
     public Assasin()
     {
+        Classname = "Assasin";
         Strength = 20;
         Health = 10;
         Ap = 10;
